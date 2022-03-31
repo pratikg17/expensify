@@ -16,7 +16,7 @@
 
 # User Stories:
 •	*1. User should be able to create an account
-•	*2. User should be able to login with the acc
+•	2. User should be able to login with the acc*
 •	*3. User should be able to create an expense
 •	*4. User should be able to edit an expense
 •	*5. User should be able to view all the expenses
