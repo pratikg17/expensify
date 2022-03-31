@@ -15,14 +15,14 @@
 
 
 ## User Stories:
-	* 1. User should be able to create an account
-	* 2. User should be able to login with the acc
-	* 3. User should be able to create an expense
-	* 4. User should be able to edit an expense
-	* 5. User should be able to view all the expenses
-	* 6. User should be able to delete any expenses
-	* 7. User should be able to view summary of the expenses
-	* 8. User should be able to filter the expenses
-	* 9. User should be user to sort the expenses
-	* 10. User should be able to retrieve expenses data from the database any time
-	* 11. Application should facilitate any number of accounts
+* User should be able to create an account
+* User should be able to login with the acc
+* User should be able to create an expense
+* User should be able to edit an expense
+* User should be able to view all the expenses
+* User should be able to delete any expenses
+* User should be able to view summary of the expenses
+* User should be able to filter the expenses
+* User should be user to sort the expenses
+* User should be able to retrieve expenses data from the database any time
+* Application should facilitate any number of accounts
