@@ -1,6 +1,5 @@
 import errorHandler from "./../helpers/errorHandler.js";
 import * as userService from "../services/user.service.js";
-import e from "express";
 
 const setSuccessResponse = (obj, response) => {
   response.status(200);
@@ -28,7 +27,7 @@ export const index = async (request, response) => {
 export const registerUser = async (req, res) => {
   try {
     let user = await userService.findByEmail(req.body.email);
-    if (user.length > 0) {
+    if (user) {
       return res.status(400).json({ errors: [{ msg: "User already exists" }] });
     } else {
       const newUser = await userService.create(req.body);

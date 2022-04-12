@@ -13,8 +13,10 @@ export const get = async (id) => {
 
 // get the User list
 export const findByEmail = async (email) => {
-  const promise = await User.find({ email: email }).exec();
-  return promise;
+  let user = await User.findOne({
+    email: email,
+  });
+  return user;
 };
 
 // Create new User
