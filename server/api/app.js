@@ -7,7 +7,6 @@ import "dotenv/config";
 const app = express();
 
 // Mongo db connection
-// console.log("process.env", process.env.MONGO_URI);
 mongoose.connect(process.env.MONGO_URI);
 
 app.use(express.json());

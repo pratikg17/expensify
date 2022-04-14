@@ -22,6 +22,11 @@ export const signInUser = async (req, res) => {
     const token = jwt.sign(
       {
         _id: user._id,
+        user: {
+          _id: user._id,
+          name: user.name,
+          email: user.email,
+        },
       },
       process.env.JWT_SECRET
     );
@@ -39,7 +44,6 @@ export const signInUser = async (req, res) => {
       },
     });
   } catch (err) {
-    console.log("err", err);
     return res.status("401").json({
       error: "Could not sign in",
     });
