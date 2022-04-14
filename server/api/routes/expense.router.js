@@ -24,4 +24,11 @@ router.post(
   }
 );
 
+// @route    GET api/expense
+// @desc     Get expenses by user
+// @access   Private
+router.get("/expense", auth, async (req, res) => {
+  return expenseController.getExpenseByUser(req, res);
+});
+
 export default router;
