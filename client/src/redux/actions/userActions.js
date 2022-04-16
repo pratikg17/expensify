@@ -26,7 +26,7 @@ export const userRegister = (reqObj) => async (dispatch) => {
   dispatch({ type: "LOADING", payload: true });
 
   try {
-    const response = await axios.post(`${baseUrl}/api/users/`, reqObj);
+    const response = await axios.post(`${baseUrl}/api/user`, reqObj);
     toast.success("Login Success");
     setTimeout(() => {
       window.location.href = "/login";

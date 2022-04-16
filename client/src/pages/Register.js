@@ -13,6 +13,7 @@ import Copyright from "../components/Copyright";
 import { Link, useHistory } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { useForm } from "react-hook-form";
+import { userRegister } from "../redux/actions/userActions";
 
 const theme = createTheme();
 
@@ -28,14 +29,14 @@ export default function Register() {
   } = useForm();
 
   const onSubmit = (data) => {
-    console.log({
+    console.log();
+    let registerInfo = {
       email: data.email,
       name: data.name,
       password: data.password,
-    });
+    };
+    dispatch(userRegister(registerInfo));
   };
-
-  const handleSubmit1 = (event) => {};
 
   return (
     <ThemeProvider theme={theme}>
