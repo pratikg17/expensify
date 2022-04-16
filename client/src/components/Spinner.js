@@ -4,7 +4,7 @@ import { MutatingDots } from "react-loader-spinner";
 function Spinner() {
   return (
     <div className="spinner">
-      <MutatingDots />
+      <MutatingDots color="#1976d2" />
     </div>
   );
 }

@@ -11,8 +11,8 @@ export const userLogin = (reqObj) => async (dispatch) => {
     const decodedJwt = jwt(jwtToken);
     localStorage.setItem("token", jwtToken);
     localStorage.setItem("user", JSON.stringify(decodedJwt));
-    dispatch({ type: "LOADING", payload: false });
     toast.success("Login Success");
+    dispatch({ type: "LOADING", payload: false });
     setTimeout(() => {
       window.location.href = "/";
     }, 500);

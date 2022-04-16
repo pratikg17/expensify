@@ -6,6 +6,12 @@ import DashboardIcon from "@mui/icons-material/Dashboard";
 import BarChartIcon from "@mui/icons-material/BarChart";
 import LogoutIcon from "@mui/icons-material/Logout";
 
+function handleLogout() {
+  localStorage.removeItem("user");
+  localStorage.removeItem("token");
+  window.location.href = "/login";
+}
+
 export const mainListItems = (
   <React.Fragment>
     <ListItemButton>
@@ -25,7 +31,7 @@ export const mainListItems = (
 
 export const secondaryListItems = (
   <React.Fragment>
-    <ListItemButton>
+    <ListItemButton onClick={handleLogout}>
       <ListItemIcon>
         <LogoutIcon />
       </ListItemIcon>
