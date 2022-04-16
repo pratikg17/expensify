@@ -25,7 +25,7 @@ export default function Login() {
   const { loading } = useSelector((state) => state.alertsReducer);
 
   useEffect(() => {
-    const isAuthenticated = localStorage.getItem("admin");
+    const isAuthenticated = localStorage.getItem("user");
     if (isAuthenticated) {
       history.push("/");
     }

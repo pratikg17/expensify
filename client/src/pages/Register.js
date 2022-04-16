@@ -19,7 +19,6 @@ const theme = createTheme();
 
 export default function Register() {
   const dispatch = useDispatch();
-  const history = useHistory();
 
   const {
     register,
@@ -53,9 +52,10 @@ export default function Register() {
           <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>
             <LockOutlinedIcon />
           </Avatar>
-          <Typography component="h1" variant="h5">
-            Sign up
+          <Typography component="h1" variant="h4">
+            Sign up for Expensify
           </Typography>
+          <br />
           <form
             component="form"
             onSubmit={handleSubmit(onSubmit)}
@@ -64,16 +64,6 @@ export default function Register() {
             <Box>
               <Grid container spacing={2}>
                 <Grid item xs={12} sm={12}>
-                  {/* <TextField
-                    autoComplete="given-name"
-                    name="name"
-                    required
-                    fullWidth
-                    id="name"
-                    label="Full Name"
-                    autoFocus
-                  /> */}
-
                   <TextField
                     id="outlined-basic"
                     name="name"

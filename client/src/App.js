@@ -11,12 +11,25 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        <Route path="/" exact component={Home}></Route>
+        <ProtectedRoute path="/" exact component={Home}></ProtectedRoute>
         <Route path="/login" exact component={Login}></Route>
         <Route path="/register" exact component={Register}></Route>
       </BrowserRouter>
       <ToastContainer position="top-center" autoClose={5000} />
     </div>
+  );
+}
+
+export function ProtectedRoute({ component: Component, ...restOfProps }) {
+  const isAuthenticated = localStorage.getItem("user");
+  console.log("this", isAuthenticated);
+  return (
+    <Route
+      {...restOfProps}
+      render={(props) =>
+        isAuthenticated ? <Component {...props} /> : <Redirect to="/login" />
+      }
+    />
   );
 }
 
