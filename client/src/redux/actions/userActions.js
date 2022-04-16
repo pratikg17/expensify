@@ -1,5 +1,6 @@
 import { baseUrl } from "../../config";
 import jwt from "jwt-decode";
+import axios from "axios";
 
 export const userLogin = (reqObj) => async (dispatch) => {
   dispatch({ type: "LOADING", payload: true });

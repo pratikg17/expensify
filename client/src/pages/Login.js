@@ -1,37 +1,33 @@
 import * as React from "react";
+import { useEffect } from "react";
 import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import CssBaseline from "@mui/material/CssBaseline";
 import TextField from "@mui/material/TextField";
-import Link from "@mui/material/Link";
 import Paper from "@mui/material/Paper";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Typography from "@mui/material/Typography";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-
-function Copyright(props) {
-  return (
-    <Typography
-      variant="body2"
-      color="text.secondary"
-      align="center"
-      {...props}
-    >
-      {"Copyright © "}
-      <Link color="inherit" href="https://mui.com/">
-        Your Website
-      </Link>{" "}
-      {new Date().getFullYear()}
-      {"."}
-    </Typography>
-  );
-}
+import { userLogin } from "../redux/actions/userActions";
+import { Link, useHistory } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import Copyright from "../components/Copyright";
 
 const theme = createTheme();
 
 export default function Login() {
+  const dispatch = useDispatch();
+  const history = useHistory();
+
+  useEffect(() => {
+    const isAuthenticated = localStorage.getItem("admin");
+    if (isAuthenticated) {
+      history.push("/");
+    }
+  });
+
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
@@ -39,6 +35,13 @@ export default function Login() {
       email: data.get("email"),
       password: data.get("password"),
     });
+
+    let loginInfo = {
+      email: data.get("email"),
+      password: data.get("password"),
+    };
+
+    dispatch(userLogin(loginInfo));
   };
 
   return (
@@ -72,6 +75,9 @@ export default function Login() {
               alignItems: "center",
             }}
           >
+            <Typography component="h1" variant="h4">
+              Expensify
+            </Typography>
             <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>
               <LockOutlinedIcon />
             </Avatar>
