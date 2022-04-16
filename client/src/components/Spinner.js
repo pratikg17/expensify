@@ -1,10 +1,10 @@
 import React from "react";
-import { Spin } from "antd";
+import { MutatingDots } from "react-loader-spinner";
 
 function Spinner() {
   return (
     <div className="spinner">
-      <Spin size="large" />
+      <MutatingDots />
     </div>
   );
 }

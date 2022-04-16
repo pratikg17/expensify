@@ -12,14 +12,17 @@ import Typography from "@mui/material/Typography";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { userLogin } from "../redux/actions/userActions";
 import { Link, useHistory } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import Copyright from "../components/Copyright";
+import Spinner from "../components/Spinner";
 
 const theme = createTheme();
 
 export default function Login() {
   const dispatch = useDispatch();
   const history = useHistory();
+
+  const { loading } = useSelector((state) => state.alertsReducer);
 
   useEffect(() => {
     const isAuthenticated = localStorage.getItem("admin");
@@ -46,6 +49,7 @@ export default function Login() {
 
   return (
     <ThemeProvider theme={theme}>
+      {loading && <Spinner />}
       <Grid container component="main" sx={{ height: "100vh" }}>
         <CssBaseline />
         <Grid
