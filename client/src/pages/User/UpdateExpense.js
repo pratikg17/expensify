@@ -48,6 +48,27 @@ function UpdateExpense({ match }) {
       }
     }, [selectedExpense]);
 
+    const [date, setDate] = useState(new Date());
 
+    const onSubmit = (data) => {
+      console.log(data);
+      console.log(date);
+  
+      let expenseInfo = {
+        expense_id: expenseId,
+        title: data.title,
+        category: data.category,
+        amount: data.amount,
+        incurred_on: date,
+        notes: data.notes,
+      };
+      dispatch(updateUserExpense(expenseInfo));
+    };
+  
+    const cancelForm = () => {
+      history.goBack();
+    };
+
+    
 
 export default UpdateExpense;
