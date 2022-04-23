@@ -15,3 +15,39 @@ import { updateUserExpense } from "../../redux/actions/userActions";
 import { getExpenseById } from "../../redux/actions/userActions";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
+
+function UpdateExpense({ match }) {
+    const { selectedExpense } = useSelector((state) => state.userReducer);
+    let history = useHistory();
+    const dispatch = useDispatch();
+    const { loading } = useSelector((state) => state.alertsReducer);
+    const [expense, setExpense] = useState();
+    const expenseId = match.params.expenseid;
+    const {
+      register,
+      handleSubmit,
+      reset,
+      setValue,
+      formState: { errors },
+    } = useForm();
+    useEffect(() => {
+      if (selectedExpense == null || selectedExpense._id != expenseId) {
+        dispatch(getExpenseById(expenseId));
+      } else {
+        setExpense(selectedExpense);
+        console.log("selectedExpense", selectedExpense);
+        if (selectedExpense._id === expenseId) {
+          setValue("title", selectedExpense.title);
+          setValue("category", selectedExpense.category);
+          setValue("notes", selectedExpense.notes);
+          setValue("amount", selectedExpense.amount);
+          setDate(selectedExpense.incurred_on);
+        } else {
+          dispatch(getExpenseById(expenseId));
+        }
+      }
+    }, [selectedExpense]);
+
+
+
+export default UpdateExpense;
