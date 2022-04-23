@@ -15,3 +15,31 @@ import {
 
 import { getMonthlyReport } from "../../../redux/actions/reportActions";
 import { useDispatch, useSelector } from "react-redux";
+
+function MonthlyReport() {
+    const { monthly } = useSelector((state) => state.reportReducer);
+    const [error, setError] = useState("");
+    const [plot, setPlot] = useState([]);
+    const [month, setMonth] = useState(new Date());
+    const dispatch = useDispatch();
+    const { loading } = useSelector((state) => state.alertsReducer);
+  
+    useEffect(() => {
+        const abortController = new AbortController();
+        const signal = abortController.signal;
+        if (monthly === null) {
+          let data = { month: month.toDateString() };
+          dispatch(getMonthlyReport(data, signal));
+        } else {
+          setPlot(monthly);
+        }
+      }, [monthly]);
+
+      const handleDateChange = (date) => {
+        setMonth(date);
+        let data = { month: date.toDateString() };
+        dispatch(getMonthlyReport(data));
+      };
+
+    }      
+export default MonthlyReport;
