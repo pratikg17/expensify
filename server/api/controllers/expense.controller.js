@@ -53,3 +53,20 @@ export const getExpenseById = async (req, res) => {
     });
   }
 };
+
+
+// @route    DELETE api/expense
+// @desc     Delete expenses by user
+// @access   Private
+export const deleteExpenseById = async (req, res) => {
+  try {
+    const id = req.params.expenseId;
+    let expenses = await expenseService.remove(id);
+    res.json(expenses);
+  } catch (err) {
+    return res.status(400).json({
+      error: errorHandler.getErrorMessage(err),
+    });
+  }
+};
+
