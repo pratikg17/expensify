@@ -69,6 +69,128 @@ function UpdateExpense({ match }) {
       history.goBack();
     };
 
-    
+    return (
+        <DefaultLayout>
+          <div>
+            <Typography variant="h6" gutterBottom>
+              Add New Expense
+            </Typography>
+            <br></br>
+            <form component="form" noValidate onSubmit={handleSubmit(onSubmit)}>
+              <Container maxWidth="sm">
+                <Grid
+                  container
+                  component={Paper}
+                  spacing={2}
+                  alignItems="center"
+                  justifyContent="center"
+                >
+                  <Grid item xs={8} sm={8}>
+                    <TextField
+                      required
+                      id="title"
+                      name="title"
+                      label="Add Expense Title"
+                      fullWidth
+                      InputLabelProps={{ shrink: true }}
+                      variant="standard"
+                      {...register("title", {
+                        required: "Expense Title is required.",
+                      })}
+                      error={Boolean(errors.title)}
+                      helperText={errors.title?.message}
+                    />
+                  </Grid>
+                  <Grid item xs={8} sm={8}>
+                    <TextField
+                      required
+                      id="category"
+                      name="category"
+                      label="Add Expense Category"
+                      fullWidth
+                      variant="standard"
+                      InputLabelProps={{ shrink: true }}
+                      {...register("category", {
+                        required: "Expense Category is required.",
+                      })}
+                      error={Boolean(errors.category)}
+                      helperText={errors.category?.message}
+                    />
+                  </Grid>
+                  <Grid item xs={8} sm={8}>
+                    <TextField
+                      required
+                      type="number"
+                      id="amount"
+                      name="amount"
+                      label="Add Expense Amount"
+                      fullWidth
+                      InputLabelProps={{ shrink: true }}
+                      variant="standard"
+                      {...register("amount", {
+                        required: "Expense Amount is required.",
+                      })}
+                      error={Boolean(errors.amount)}
+                      helperText={errors.amount?.message}
+                    />
+                  </Grid>
+                  <Grid item xs={8} sm={8}>
+                    <TextField
+                      required
+                      id="notes"
+                      name="notes"
+                      label="Additional Notes"
+                      fullWidth
+                      InputLabelProps={{ shrink: true }}
+                      variant="standard"
+                      {...register("notes")}
+                    />
+                  </Grid>
+                  <br />
+                  <br />
+                  <Grid item xs={12} sm={12}>
+                    <LocalizationProvider dateAdapter={AdapterDateFns}>
+                      <DatePicker
+                        label="Incurred On"
+                        showTodayButton
+                        value={date}
+                        name="incurredOn"
+                        onChange={(newValue) => {
+                          setDate(newValue);
+                        }}
+                        renderInput={(params) => <TextField {...params} />}
+                      />
+                    </LocalizationProvider>
+                  </Grid>
+                  <Grid item xs={6}>
+                    <Box
+                      sx={{
+                        display: "flex",
+                        justifyContent: "space-around",
+                        p: 1,
+                        m: 1,
+                        bgcolor: "background.paper",
+                        borderRadius: 1,
+                      }}
+                    >
+                      <Button type="submit" variant="contained">
+                        UPDATE
+                      </Button>
+                      <Button
+                        variant="contained"
+                        color="error"
+                        onClick={cancelForm}
+                      >
+                        CANCEL
+                      </Button>
+                    </Box>
+                  </Grid>
+                </Grid>
+              </Container>
+            </form>
+          </div>
+        </DefaultLayout>
+      );
+    }
 
 export default UpdateExpense;
