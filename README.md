@@ -6,7 +6,7 @@
 
 - Pratik Gawand
 - Sathwik Hegde
-- Ganesh Kumar Dharani
+- Ganesh Kumar Dharani check
 - Shenckerr Gollapudi
 
 # Domain Model:
