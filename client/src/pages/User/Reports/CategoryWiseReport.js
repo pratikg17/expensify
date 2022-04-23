@@ -16,6 +16,26 @@ import { getCategoryWiseReport } from "../../../redux/actions/reportActions";
 import { useDispatch, useSelector } from "react-redux";
 import { VictoryPie, VictoryTheme, VictoryLabel } from "victory";
 
-
+function CategoryWiseReport() {
+    const { categoryWise } = useSelector((state) => state.reportReducer);
+    const [error, setError] = useState("");
+    const dispatch = useDispatch();
+    const { loading } = useSelector((state) => state.alertsReducer);
+    const [expenses, setExpenses] = useState([]);
+  
+    const date = new Date(),
+      y = date.getFullYear(),
+      m = date.getMonth();
+    const [firstDay, setFirstDay] = useState(new Date(y, m, 1));
+    const [lastDay, setLastDay] = useState(new Date(y, m + 1, 0));
+  
+    const handleDateChange = (name) => (date) => {
+      if (name == "firstDay") {
+        setFirstDay(date);
+      } else {
+        setLastDay(date);
+      }
+    };
+  
 
 export default CategoryWiseReport;
