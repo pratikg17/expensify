@@ -70,3 +70,21 @@ export const deleteExpenseById = async (req, res) => {
   }
 };
 
+
+// @route    PUT api/expense
+// @desc     UPDATE expenses by user
+// @access   Private
+export const updateExpenseById = async (req, res) => {
+  console.log(req.body);
+  try {
+    const expenseId = req.body.expense_id;
+    const updatedExpense = Object.assign({}, req.body);
+    updatedExpense.updated = new Date();
+    let expenses = await expenseService.update(expenseId, updatedExpense);
+    res.json(expenses);
+  } catch (err) {
+    return res.status(400).json({
+      error: errorHandler.getErrorMessage(err),
+    });
+  }
+};
