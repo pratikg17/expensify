@@ -88,3 +88,45 @@ export const updateExpenseById = async (req, res) => {
     });
   }
 };
+
+// @route    GET /expense/dashboard
+// @desc     Get dashboard view
+// @access   Private
+export const getUserDashboard = async (req, res) => {
+  console.log("test", req);
+  let userId = req.user._id;
+  const date = new Date(),
+    y = date.getFullYear(),
+    m = date.getMonth();
+  const firstDay = new Date(y, m, 1);
+  const lastDay = new Date(y, m + 1, 0);
+
+  const today = new Date();
+  today.setUTCHours(0, 0, 0, 0);
+
+  const tomorrow = new Date();
+  tomorrow.setUTCHours(0, 0, 0, 0);
+  tomorrow.setDate(tomorrow.getDate() + 1);
+
+  const yesterday = new Date();
+  yesterday.setUTCHours(0, 0, 0, 0);
+  yesterday.setDate(yesterday.getDate() - 1);
+
+  console.log(req.body);
+  let data = {
+    userId,
+    today,
+    tomorrow,
+    yesterday,
+  };
+
+  try {
+    let expenses = await expenseService.getCurrentMontlyPreview(data);
+    return res.json(expenses);
+  } catch (err) {
+    console.log(err);
+    return res.status(400).json({
+      error: errorHandler.getErrorMessage(err),
+    });
+  }
+};
