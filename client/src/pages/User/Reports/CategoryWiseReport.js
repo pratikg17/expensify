@@ -37,5 +37,38 @@ function CategoryWiseReport() {
       }
     };
   
-
+    useEffect(() => {
+        const abortController = new AbortController();
+        const signal = abortController.signal;
+        if (categoryWise === null) {
+          let data = { firstDay: firstDay, lastDay: lastDay };
+          dispatch(getCategoryWiseReport(data, signal));
+        } else {
+          setExpenses(categoryWise);
+          console.log("categoryWise", categoryWise);
+        }
+        return function cleanup() {
+          abortController.abort();
+        };
+      }, [categoryWise]);
+    
+      const searchClicked = () => {
+        let data = { firstDay: firstDay, lastDay: lastDay };
+        dispatch(getCategoryWiseReport(data));
+      };
+    
+      const resetClicked = () => {
+        const date = new Date(),
+          y = date.getFullYear(),
+          m = date.getMonth();
+    
+        setFirstDay(new Date(y, m, 1));
+        setLastDay(new Date(y, m + 1, 0));
+        let query = {
+          firstDay: new Date(y, m, 1),
+          lastDay: new Date(y, m + 1, 0),
+        };
+        dispatch(getCategoryWiseReport(query));
+      };
+    
 export default CategoryWiseReport;
