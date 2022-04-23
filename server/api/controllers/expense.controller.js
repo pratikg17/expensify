@@ -130,3 +130,33 @@ export const getUserDashboard = async (req, res) => {
     });
   }
 };
+
+
+// @route    GET /expense/category
+// @desc     Get category view
+// @access   Private
+export const getUserExpenseCategory = async (req, res) => {
+  let userId = req.user._id;
+  const date = new Date(),
+    y = date.getFullYear(),
+    m = date.getMonth();
+  const firstDay = new Date(y, m, 1);
+  const lastDay = new Date(y, m + 1, 0);
+
+  let data = {
+    firstDay,
+    userId,
+    lastDay,
+  };
+  try {
+    let categoryMonthlyAvg = await expenseService.getExpenseMonthlyCategory(
+      data
+    );
+    res.json(categoryMonthlyAvg);
+  } catch (err) {
+    console.log(err);
+    return res.status(400).json({
+      error: errorHandler.getErrorMessage(err),
+    });
+  }
+};
