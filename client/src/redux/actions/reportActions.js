@@ -44,3 +44,25 @@ export const getMonthlyReport = (params, signal) => async (dispatch) => {
       throw error;
     }
   };
+
+  export const getCategoryWiseReport = (params, signal) => async (dispatch) => {
+    const token = localStorage.getItem("token");
+    dispatch({ type: "LOADING", payload: true });
+    try {
+      const response = await axios.get(
+        `${baseUrl}/api/expense-report/category/pie`,
+        {
+          params,
+          signal,
+          headers: {
+            "x-auth-token": token, //the token is a variable which holds the token
+          },
+        }
+      );
+      dispatch({ type: "GET_CATEGORY_REPORT", payload: response.data });
+      dispatch({ type: "LOADING", payload: false });
+    } catch (error) {
+      throw error;
+    }
+  };
+  
