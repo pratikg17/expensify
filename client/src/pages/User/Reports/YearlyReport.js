@@ -16,7 +16,31 @@ function YearlyReport() {
     const { loading } = useSelector((state) => state.alertsReducer);
     const [year, setYear] = useState(new Date());
     const [yearlyExpense, setYearlyExpense] = useState([]);
- 
+
+    const monthStrings = [
+        "Jan",
+        "Feb",
+        "Mar",
+        "Apr",
+        "May",
+        "Jun",
+        "Jul",
+        "Aug",
+        "Sep",
+        "Oct",
+        "Nov",
+        "Dec",
+      ]; 
+      useEffect(() => {
+        const abortController = new AbortController();
+        const signal = abortController.signal;
+        if (yearly === null) {
+          let data = { year: year.getFullYear() };
+          dispatch(getYearlyReport(data, signal));
+        } else {
+          setYearlyExpense(yearly);
+        }
+      }, [yearly]);         
 }
 
 export default YearlyReport;    
