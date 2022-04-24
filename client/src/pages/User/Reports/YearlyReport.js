@@ -40,7 +40,13 @@ function YearlyReport() {
         } else {
           setYearlyExpense(yearly);
         }
-      }, [yearly]);         
+      }, [yearly]);  
+      
+      const handleDateChange = (date) => {
+        setYear(date);
+        let data = { year: date.getFullYear() };
+        dispatch(getYearlyReport(data));
+      };             
 }
 
 export default YearlyReport;    
