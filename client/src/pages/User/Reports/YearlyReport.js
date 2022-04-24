@@ -41,12 +41,82 @@ function YearlyReport() {
           setYearlyExpense(yearly);
         }
       }, [yearly]);  
-      
+
       const handleDateChange = (date) => {
         setYear(date);
         let data = { year: date.getFullYear() };
         dispatch(getYearlyReport(data));
       };             
-}
+      return (
+        <DefaultLayout>
+          {loading && <Spinner />}
+          <Container maxWidth="100%">
+            <Typography variant="h6" gutterBottom>
+              Yearly Expense Bar Chart
+            </Typography>
+            <Box
+              sx={{
+                display: "flex",
+                justifyContent: "center",
+                p: 1,
+                m: 1,
+                bgcolor: "background.paper",
+                borderRadius: 1,
+              }}
+            >
+              <LocalizationProvider dateAdapter={AdapterDateFns}>
+                <DatePicker
+                  label="Select Year"
+                  views={["year"]}
+                  showTodayButton
+                  value={year}
+                  disableFuture
+                  animateYearScrolling
+                  onChange={(newValue) => {
+                    handleDateChange(newValue);
+                  }}
+                  variant="inline"
+                  renderInput={(params) => <TextField {...params} />}
+                />
+              </LocalizationProvider>
+            </Box>
+            <Box
+              sx={{
+                display: "flex",
+                justifyContent: "center",
+                p: 1,
+                m: 1,
+                bgcolor: "background.paper",
+                borderRadius: 1,
+              }}
+              component={Paper}
+            >
+              <VictoryChart
+                theme={VictoryTheme.material}
+                domainPadding={10}
+                height={300}
+                width={450}
+              >
+                <VictoryAxis />
+                <VictoryBar
+                  categories={{
+                    x: monthStrings,
+                  }}
+                  style={{
+                    data: { fill: "#69f0ae", width: 20 },
+                    labels: { fill: "#01579b" },
+                  }}
+                  data={yearlyExpense.monthTot}
+                  x={monthStrings["x"]}
+                  domain={{ x: [0, 13] }}
+                  labels={({ datum }) => `$${datum.y}`}
+                />
+              </VictoryChart>
+            </Box>
+          </Container>
+        </DefaultLayout>
+      );
+
+    }
 
 export default YearlyReport;    
