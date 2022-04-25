@@ -41,12 +41,6 @@ export const update = async (id, updatedExpense) => {
   return expense;
 };
 
-// Delete the todo
-export const remove = async (id) => {
-  const remove = await Expense.remove({ _id: id }).exec();
-  return remove;
-};
-
 export const getExpenseById = async (id) => {
   const expense = await Expense.findById(id).exec();
   return expense;
