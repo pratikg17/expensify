@@ -4,7 +4,7 @@ const websiteUrls = new Map();
 urls.set("localhost", "http://localhost:9000");
 urls.set(
   "expensify-client-web-app.herokuapp.com",
-  "https://expensify-client-web-app.herokuapp.com:9000"
+  "https://expensify-client-web-app.herokuapp.com/"
 );
 websiteUrls.set("localhost", "http://localhost:3000");
 websiteUrls.set(

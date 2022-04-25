@@ -1,0 +1,44 @@
+name: React job project
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Install React package
+        run: npm install --prefix client
+
+      - name: build
+        run: npm run build --prefix client
+        env:
+          CI: false
+
+  deploy:
+    needs: build
+    runs-on: "ubuntu-latest"
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: login to heroku
+        env:
+          HEROKU_API_KEY: d1e8b697-3d74-4b1a-b7b5-1bd269f7ebae
+        run: heroku container:login
+
+      - name: Build react docker image and push to heroku registry
+        env:
+          HEROKU_API_KEY: d1e8b697-3d74-4b1a-b7b5-1bd269f7ebae
+        run: heroku container:push -a expensify-react-client web
+
+      - name: Release latest react docker image to server
+        env:
+          HEROKU_API_KEY: d1e8b697-3d74-4b1a-b7b5-1bd269f7ebae
+        run: heroku container:release -a expensify-react-client web
