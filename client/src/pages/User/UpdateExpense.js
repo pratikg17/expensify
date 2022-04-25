@@ -90,7 +90,7 @@ function UpdateExpense({ match }) {
                       required
                       id="title"
                       name="title"
-                      label="Add Expense Title"
+                      label="Update Expense Title"
                       fullWidth
                       InputLabelProps={{ shrink: true }}
                       variant="standard"
@@ -106,7 +106,7 @@ function UpdateExpense({ match }) {
                       required
                       id="category"
                       name="category"
-                      label="Add Expense Category"
+                      label="Update Expense Category"
                       fullWidth
                       variant="standard"
                       InputLabelProps={{ shrink: true }}
