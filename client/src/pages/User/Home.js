@@ -117,7 +117,7 @@ export default function Home() {
             </Stack>
           </Container>
         </Box>
-        <Carousel indicators={true} cycleNavigation navButtonsAlwaysVisible>
+        <Carousel indicators={true}  navButtonsAlwaysVisible>
           {items.map((item, i) => (
             <Item key={i} item={item} />
           ))}
