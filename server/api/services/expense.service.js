@@ -20,7 +20,6 @@ export const getExpenseByUserAndRange = async (startDate, endDate, userId) => {
   return expenses;
 };
 
-
 // Delete the expense
 export const remove = async (id) => {
   const remove = await Expense.remove({ _id: id }).exec();
@@ -38,17 +37,6 @@ export const update = async (id, updatedExpense) => {
   const expense = await Expense.findByIdAndUpdate({ _id: id }, updatedExpense, {
     new: true,
   }).exec();
-  return expense;
-};
-
-// Delete the todo
-export const remove = async (id) => {
-  const remove = await Expense.remove({ _id: id }).exec();
-  return remove;
-};
-
-export const getExpenseById = async (id) => {
-  const expense = await Expense.findById(id).exec();
   return expense;
 };
 
@@ -205,4 +193,3 @@ export const getUserPieChart = async (data) => {
   ]).exec();
   return pieChart;
 };
-
