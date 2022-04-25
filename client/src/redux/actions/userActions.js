@@ -26,7 +26,7 @@ export const userRegister = (reqObj) => async (dispatch) => {
   dispatch({ type: "LOADING", payload: true });
 
   try {
-    const response = await axios.post(`${baseUrl}/api/user`, reqObj);
+    await axios.post(`${baseUrl}/api/user`, reqObj);
     toast.success("Login Success");
     setTimeout(() => {
       window.location.href = "/login";
@@ -39,7 +39,6 @@ export const userRegister = (reqObj) => async (dispatch) => {
     dispatch({ type: "LOADING", payload: true });
   }
 };
-
 
 export const addUserExpense = (reqObj) => async (dispatch) => {
   dispatch({ type: "LOADING", payload: true });
@@ -60,6 +59,29 @@ export const addUserExpense = (reqObj) => async (dispatch) => {
   }
 };
 
+export const updateUserExpense = (reqObj) => async (dispatch) => {
+  dispatch({ type: "LOADING", payload: true });
+
+  try {
+    const token = localStorage.getItem("token");
+    await axios.put(`${baseUrl}/api/expense`, reqObj, {
+      headers: {
+        "x-auth-token": token, //the token is a variable which holds the token
+      },
+    });
+    toast.success("Updated Expense Success");
+    dispatch({ type: "LOADING", payload: false });
+
+    setTimeout(() => {
+      window.location.href = "/list-expense";
+    }, 500);
+  } catch (error) {
+    console.log(error);
+    toast.error("Something went wrong");
+    dispatch({ type: "LOADING", payload: true });
+  }
+};
+
 export const getUserExpenses = (params) => async (dispatch) => {
   const token = localStorage.getItem("token");
   dispatch({ type: "LOADING", payload: true });
@@ -73,6 +95,38 @@ export const getUserExpenses = (params) => async (dispatch) => {
     console.log(response);
     dispatch({ type: "GET_USER_EXPENSE", payload: response.data });
     dispatch({ type: "LOADING", payload: false });
+  } catch (error) {
+    throw error;
+  }
+};
+
+export const deleteUserExpenses = (expenseId, query) => async (dispatch) => {
+  const token = localStorage.getItem("token");
+  dispatch({ type: "LOADING", payload: true });
+  try {
+    await axios.delete(`${baseUrl}/api/expense/${expenseId}`, {
+      headers: {
+        "x-auth-token": token, //the token is a variable which holds the token
+      },
+    });
+    dispatch({ type: "LOADING", payload: false });
+    dispatch(getUserExpenses(query));
+  } catch (error) {
+    throw error;
+  }
+};
+
+export const getExpenseById = (expenseId) => async (dispatch) => {
+  const token = localStorage.getItem("token");
+  dispatch({ type: "LOADING", payload: true });
+  try {
+    const response = await axios.get(`${baseUrl}/api/expense/${expenseId}`, {
+      headers: {
+        "x-auth-token": token, //the token is a variable which holds the token
+      },
+    });
+    dispatch({ type: "LOADING", payload: false });
+    dispatch({ type: "GET_EXPENSE_BY_ID", payload: response.data });
   } catch (error) {
     throw error;
   }

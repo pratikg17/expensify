@@ -31,4 +31,11 @@ router.get("/expense", auth, async (req, res) => {
   return expenseController.getExpenseByUser(req, res);
 });
 
+// @route    DELETE api/expense/:expenseId
+// @desc     Delete the expense/:expenseId
+// @access   Private
+router.delete("/expense/:expenseId", auth, async (req, res) => {
+  return expenseController.deleteExpenseById(req, res);
+});
+
 export default router;

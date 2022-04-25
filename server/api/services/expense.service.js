@@ -18,3 +18,9 @@ export const getExpenseByUserAndRange = async (startDate, endDate, userId) => {
     .populate("recorded_by", "_id name");
   return expenses;
 };
+
+// Delete the expense
+export const remove = async (id) => {
+  const remove = await Expense.remove({ _id: id }).exec();
+  return remove;
+};

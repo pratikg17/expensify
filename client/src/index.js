@@ -6,7 +6,11 @@ import reportWebVitals from "./reportWebVitals";
 import "./index.scss";
 import store from "./redux/store";
 import { Provider } from "react-redux";
+import en from "javascript-time-ago/locale/en.json";
+import TimeAgo from 'javascript-time-ago'
 
+
+TimeAgo.addDefaultLocale(en);
 ReactDOM.render(
   <Provider store={store}>
     <App />
