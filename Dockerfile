@@ -10,4 +10,4 @@ COPY ./client .
 
 RUN npm run build
 
-CMD ["npm", "run", "start:prod"]
+CMD ["ls", "npm", "run", "start:prod"]
