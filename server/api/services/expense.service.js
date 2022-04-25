@@ -20,12 +20,6 @@ export const getExpenseByUserAndRange = async (startDate, endDate, userId) => {
   return expenses;
 };
 
-export const update = async (id, updatedExpense) => {
-  const expense = await Expense.findByIdAndUpdate({ _id: id }, updatedExpense, {
-    new: true,
-  }).exec();
-  return expense;
-};
 
 // Delete the expense
 export const remove = async (id) => {
