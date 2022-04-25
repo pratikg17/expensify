@@ -1,7 +1,8 @@
+
 name: React job project
 
 env:
-  HEROKU_TOKEN: d1e8b697-3d74-4b1a-b7b5-1bd269f7ebae
+  HEROKU_TOKEN: "fba8b763-b23a-44a8-a3ba-065414f3719e"
 
 on:
   push:
@@ -33,15 +34,15 @@ jobs:
 
       - name: login to heroku
         env:
-          HEROKU_API_KEY: $HEROKU_TOKEN
+          HEROKU_API_KEY: "fba8b763-b23a-44a8-a3ba-065414f3719e"
         run: heroku container:login
 
       - name: Build react docker image and push to heroku registry
         env:
-          HEROKU_API_KEY: $HEROKU_TOKEN
+          HEROKU_API_KEY: "fba8b763-b23a-44a8-a3ba-065414f3719e"
         run: heroku container:push -a expensify-react-client web
 
       - name: Release latest react docker image to server
         env:
-          HEROKU_API_KEY: $HEROKU_TOKEN
+          HEROKU_API_KEY: "fba8b763-b23a-44a8-a3ba-065414f3719e"
         run: heroku container:release -a expensify-react-client web
