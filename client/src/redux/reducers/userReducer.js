@@ -1,5 +1,6 @@
 const initialData = {
   expenseHistory: [],
+  selectedExpense: null,
 };
 
 export const userReducer = (state = initialData, action) => {
@@ -8,6 +9,11 @@ export const userReducer = (state = initialData, action) => {
       return {
         ...state,
         expenseHistory: action.payload,
+      };
+    case "GET_EXPENSE_BY_ID":
+      return {
+        ...state,
+        selectedExpense: action.payload,
       };
 
     default:
