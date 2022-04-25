@@ -5,7 +5,14 @@ import ListItemText from "@mui/material/ListItemText";
 import DashboardIcon from "@mui/icons-material/Dashboard";
 import BarChartIcon from "@mui/icons-material/BarChart";
 import LogoutIcon from "@mui/icons-material/Logout";
-
+import MoneyOffIcon from "@mui/icons-material/MoneyOff";
+import ListIcon from "@mui/icons-material/List";
+import { Link } from "react-router-dom";
+import PieChartIcon from "@mui/icons-material/PieChart";
+import StackedBarChartIcon from "@mui/icons-material/StackedBarChart";
+import ShowChartIcon from "@mui/icons-material/ShowChart";
+import PaidIcon from "@mui/icons-material/Paid";
+import PriceCheckIcon from "@mui/icons-material/PriceCheck";
 function handleLogout() {
   localStorage.removeItem("user");
   localStorage.removeItem("token");
@@ -14,17 +21,41 @@ function handleLogout() {
 
 export const mainListItems = (
   <React.Fragment>
-    <ListItemButton>
+    <ListItemButton button component={Link} to="/">
       <ListItemIcon>
         <DashboardIcon />
       </ListItemIcon>
       <ListItemText primary="Dashboard" />
     </ListItemButton>
-    <ListItemButton>
+    <ListItemButton button component={Link} to="/add-expense">
       <ListItemIcon>
-        <BarChartIcon />
+        <PaidIcon />
       </ListItemIcon>
-      <ListItemText primary="Reports" />
+      <ListItemText primary="Add Expense" />
+    </ListItemButton>
+    <ListItemButton button component={Link} to="/list-expense">
+      <ListItemIcon>
+        <PriceCheckIcon />
+      </ListItemIcon>
+      <ListItemText primary="Expenses" />
+    </ListItemButton>
+    <ListItemButton button component={Link} to="/monthly">
+      <ListItemIcon>
+        <ShowChartIcon />
+      </ListItemIcon>
+      <ListItemText primary="Monthly Expenses" />
+    </ListItemButton>
+    <ListItemButton button component={Link} to="/yearly">
+      <ListItemIcon>
+        <StackedBarChartIcon />
+      </ListItemIcon>
+      <ListItemText primary="Yearly Expenses" />
+    </ListItemButton>
+    <ListItemButton button component={Link} to="/category-wise">
+      <ListItemIcon>
+        <PieChartIcon />
+      </ListItemIcon>
+      <ListItemText primary="Category Report" />
     </ListItemButton>
   </React.Fragment>
 );
