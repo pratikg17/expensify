@@ -161,4 +161,76 @@ export const getUserExpenseCategory = async (req, res) => {
   }
 };
 
+// @route    GET /expense/scatter-plot-report
+// @access   Private
+export const getUserExpenseScatterPlot = async (req, res) => {
+  let userId = req.user._id;
+  const date = new Date(req.query.month),
+    y = date.getFullYear(),
+    m = date.getMonth();
+  const firstDay = new Date(y, m, 1);
+  const lastDay = new Date(y, m + 1, 0);
 
+  let data = {
+    firstDay,
+    userId,
+    lastDay,
+  };
+  try {
+    let totalMonthly = await expenseService.getUserScatterPlot(data);
+    res.json(totalMonthly);
+  } catch (err) {
+    console.log(err);
+    return res.status(400).json({
+      error: errorHandler.getErrorMessage(err),
+    });
+  }
+};
+
+// @route    GET /expense/category/pie
+// @access   Private
+export const getUserCategoryPie = async (req, res) => {
+  let userId = req.user._id;
+  console.log(req.query);
+  const firstDay = new Date(req.query.firstDay);
+  const lastDay = new Date(req.query.lastDay);
+  let data = {
+    firstDay,
+    userId,
+    lastDay,
+  };
+  try {
+    let categoryMonthlyAvg = await expenseService.getUserPieChart(data);
+    res.json({ monthAVG: categoryMonthlyAvg });
+  } catch (err) {
+    console.log(err);
+    return res.status(400).json({
+      error: errorHandler.getErrorMessage(err),
+    });
+  }
+}; 
+
+// @route    GET /expense/yearly-bar-report
+// @access   Private
+export const getUserExpenseBarChart = async (req, res) => {
+  let userId = req.user._id;
+  const y = req.query.year;
+  const firstDay = new Date(y, 0, 1);
+  const lastDay = new Date(y, 12, 0);
+
+  let data = {
+    firstDay,
+    userId,
+    lastDay,
+  };
+
+  try {
+    let totalMonthly = await expenseService.getUserBarChart(data);
+    res.json({ monthTot: totalMonthly });
+  } catch (err) {
+    console.log(err);
+    return res.status(400).json({
+      error: errorHandler.getErrorMessage(err),
+    });
+  }
+};
