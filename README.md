@@ -59,3 +59,5 @@
 - `heroku login`
 
 - `heroku create <app_name>`
+
+- `git push heroku main`
