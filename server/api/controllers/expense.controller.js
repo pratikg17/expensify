@@ -161,3 +161,28 @@ export const getUserExpenseCategory = async (req, res) => {
   }
 };
 
+// @route    GET /expense/scatter-plot-report
+// @access   Private
+export const getUserExpenseScatterPlot = async (req, res) => {
+  let userId = req.user._id;
+  const date = new Date(req.query.month),
+    y = date.getFullYear(),
+    m = date.getMonth();
+  const firstDay = new Date(y, m, 1);
+  const lastDay = new Date(y, m + 1, 0);
+
+  let data = {
+    firstDay,
+    userId,
+    lastDay,
+  };
+  try {
+    let totalMonthly = await expenseService.getUserScatterPlot(data);
+    res.json(totalMonthly);
+  } catch (err) {
+    console.log(err);
+    return res.status(400).json({
+      error: errorHandler.getErrorMessage(err),
+    });
+  }
+};
