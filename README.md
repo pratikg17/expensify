@@ -9,11 +9,11 @@
 - Ganesh Kumar Dharani
 - Shenckerr Gollapudi
 
-# Domain Model:
+# Domain Model
 
 ![Screenshot](screenshot.png)
 
-## User Stories:
+## User Stories
 
 - User should be able to create an account
 - User should be able to login with the acc
@@ -49,3 +49,7 @@
 - To run React project `cd/server`
 - Run `npm install`
 - Type `npm run start` or `nodemon server.js`
+
+## API Postman Collection
+
+[Postman Collection](https://www.getpostman.com/collections/350ed45fe324d2aefbd3)
