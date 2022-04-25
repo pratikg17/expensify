@@ -1,4 +1,5 @@
 import Expense from "./../models/expense.model.js";
+import mongoose from "mongoose";
 
 // Create new Expense
 export const create = async (newExpense) => {
