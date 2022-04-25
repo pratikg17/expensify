@@ -15,6 +15,7 @@
     "axios": "^0.26.0",
     "date-fns": "^2.28.0",
     "i": "^0.3.7",
+    "javascript-time-ago": "^2.3.13",
     "jwt-decode": "^3.1.2",
     "lettered-avatar": "^1.0.0",
     "moment": "^2.29.1",

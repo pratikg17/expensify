@@ -53,3 +53,9 @@
 ## API Postman Collection
 
 [Postman Collection](https://www.getpostman.com/collections/350ed45fe324d2aefbd3)
+
+## Deployment
+
+- `heroku login`
+
+- `heroku create <app_name>`
