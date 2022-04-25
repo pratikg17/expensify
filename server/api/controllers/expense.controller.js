@@ -209,3 +209,28 @@ export const getUserCategoryPie = async (req, res) => {
     });
   }
 }; 
+
+// @route    GET /expense/yearly-bar-report
+// @access   Private
+export const getUserExpenseBarChart = async (req, res) => {
+  let userId = req.user._id;
+  const y = req.query.year;
+  const firstDay = new Date(y, 0, 1);
+  const lastDay = new Date(y, 12, 0);
+
+  let data = {
+    firstDay,
+    userId,
+    lastDay,
+  };
+
+  try {
+    let totalMonthly = await expenseService.getUserBarChart(data);
+    res.json({ monthTot: totalMonthly });
+  } catch (err) {
+    console.log(err);
+    return res.status(400).json({
+      error: errorHandler.getErrorMessage(err),
+    });
+  }
+};
