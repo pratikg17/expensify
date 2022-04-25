@@ -59,3 +59,21 @@ export const addUserExpense = (reqObj) => async (dispatch) => {
     dispatch({ type: "LOADING", payload: true });
   }
 };
+
+export const getUserExpenses = (params) => async (dispatch) => {
+  const token = localStorage.getItem("token");
+  dispatch({ type: "LOADING", payload: true });
+  try {
+    const response = await axios.get(`${baseUrl}/api/expense`, {
+      params,
+      headers: {
+        "x-auth-token": token, //the token is a variable which holds the token
+      },
+    });
+    console.log(response);
+    dispatch({ type: "GET_USER_EXPENSE", payload: response.data });
+    dispatch({ type: "LOADING", payload: false });
+  } catch (error) {
+    throw error;
+  }
+};

@@ -7,6 +7,7 @@ import Home from "./pages/User/Home";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import AddExpense from "./pages/User/AddExpense";
+import ListExpense from "./pages/User/ListExpense";
 
 function App() {
   return (
@@ -17,6 +18,11 @@ function App() {
           path="/add-expense"
           exact
           component={AddExpense}
+        ></ProtectedRoute>
+        <ProtectedRoute
+          path="/list-expense"
+          exact
+          component={ListExpense}
         ></ProtectedRoute>
         <Route path="/login" exact component={Login}></Route>
         <Route path="/register" exact component={Register}></Route>
