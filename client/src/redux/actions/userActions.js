@@ -39,3 +39,23 @@ export const userRegister = (reqObj) => async (dispatch) => {
     dispatch({ type: "LOADING", payload: true });
   }
 };
+
+
+export const addUserExpense = (reqObj) => async (dispatch) => {
+  dispatch({ type: "LOADING", payload: true });
+
+  try {
+    const token = localStorage.getItem("token");
+    await axios.post(`${baseUrl}/api/expense`, reqObj, {
+      headers: {
+        "x-auth-token": token, //the token is a variable which holds the token
+      },
+    });
+    toast.success("Add Expense Success");
+    dispatch({ type: "LOADING", payload: false });
+  } catch (error) {
+    console.log(error);
+    toast.error("Something went wrong");
+    dispatch({ type: "LOADING", payload: true });
+  }
+};

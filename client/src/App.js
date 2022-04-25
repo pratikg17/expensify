@@ -6,12 +6,18 @@ import Register from "./pages/Register";
 import Home from "./pages/User/Home";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import AddExpense from "./pages/User/AddExpense";
 
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
         <ProtectedRoute path="/" exact component={Home}></ProtectedRoute>
+        <ProtectedRoute
+          path="/add-expense"
+          exact
+          component={AddExpense}
+        ></ProtectedRoute>
         <Route path="/login" exact component={Login}></Route>
         <Route path="/register" exact component={Register}></Route>
       </BrowserRouter>
