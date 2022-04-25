@@ -78,16 +78,7 @@ function CategoryWiseReport() {
             <Typography variant="h6" gutterBottom>
               Category-wise expenditures
             </Typography>
-            <Box
-              sx={{
-                display: "flex",
-                justifyContent: "space-around",
-                p: 1,
-                m: 1,
-                bgcolor: "background.paper",
-                borderRadius: 1,
-              }}
-            >
+    
               <LocalizationProvider dateAdapter={AdapterDateFns}>
                 <DatePicker
                   label="From..."
@@ -128,40 +119,7 @@ function CategoryWiseReport() {
               }}
               component={Paper}
             >
-              <div style={{ width: 550, margin: "auto" }}>
-                <svg viewBox="0 0 320 320">
-                  <VictoryPie
-                    standalone={false}
-                    data={expenses.monthAVG}
-                    innerRadius={50}
-                    theme={VictoryTheme.material}
-                    labelRadius={({ innerRadius }) => innerRadius + 14}
-                    labelComponent={
-                      <VictoryLabel
-                        angle={0}
-                        style={[
-                          {
-                            fontSize: "11px",
-                            fill: "#0f0f0f",
-                          },
-                          {
-                            fontSize: "10px",
-                            fill: "#013157",
-                          },
-                        ]}
-                        text={({ datum }) => `${datum.x}\n $${datum.y}`}
-                      />
-                    }
-                  />
-                  <VictoryLabel
-                    textAnchor="middle"
-                    style={{ fontSize: 12, fill: "#8b8b8b" }}
-                    x={175}
-                    y={170}
-                    text={`Spent \nper category`}
-                  />
-                </svg>
-              </div>
+
             </Box>
           </Container>
         </DefaultLayout>

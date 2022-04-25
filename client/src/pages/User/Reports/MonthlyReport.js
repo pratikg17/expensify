@@ -44,7 +44,7 @@ function MonthlyReport() {
         <DefaultLayout>
           {loading && <Spinner />}
           <Container maxWidth="100%">
-            <Typography variant="h6" gutterBottom>
+            {/* <Typography variant="h6" gutterBottom>
               Monthly Scatter Plot
             </Typography>
             <Box
@@ -57,21 +57,7 @@ function MonthlyReport() {
                 borderRadius: 1,
               }}
             >
-              <LocalizationProvider dateAdapter={AdapterDateFns}>
-                <DatePicker
-                  label="Select Month"
-                  views={["month"]}
-                  showTodayButton
-                  value={month}
-                  disableFuture
-                  animateYearScrolling
-                  onChange={(newValue) => {
-                    handleDateChange(newValue);
-                  }}
-                  variant="inline"
-                  renderInput={(params) => <TextField {...params} />}
-                />
-              </LocalizationProvider>
+      
             </Box>
             <Box
               sx={{
@@ -119,7 +105,7 @@ function MonthlyReport() {
                   text={`Amount ($)`}
                 />
               </VictoryChart>
-            </Box>
+            </Box> */}
           </Container>
         </DefaultLayout>
       );      
