@@ -99,7 +99,7 @@ function DashboardContent(props) {
               noWrap
               sx={{ flexGrow: 1 }}
             >
-              Expense Dashboard
+              Expensify Dashboard
             </Typography>
           </Toolbar>
         </AppBar>
