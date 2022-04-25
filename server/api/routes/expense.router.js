@@ -31,11 +31,27 @@ router.get("/expense", auth, async (req, res) => {
   return expenseController.getExpenseByUser(req, res);
 });
 
+
+// @route    GET api/expense/:expenseId
+// @desc     Delete the expense/:expenseId
+// @access   Private
+router.get("/expense/:expenseId", auth, async (req, res) => {
+  return expenseController.getExpenseById(req, res);
+});
+
+// @route    PUT api/expense
+// @desc     Update the expense
+// @access   Private
+router.put("/expense", auth, async (req, res) => {
+  return expenseController.updateExpenseById(req, res);
+});
+
 // @route    DELETE api/expense/:expenseId
 // @desc     Delete the expense/:expenseId
 // @access   Private
 router.delete("/expense/:expenseId", auth, async (req, res) => {
   return expenseController.deleteExpenseById(req, res);
 });
+
 
 export default router;

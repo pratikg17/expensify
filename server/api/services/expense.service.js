@@ -24,3 +24,17 @@ export const remove = async (id) => {
   const remove = await Expense.remove({ _id: id }).exec();
   return remove;
 };
+
+// Get the expense data
+export const getExpenseById = async (id) => {
+  const expense = await Expense.findById(id).exec();
+  return expense;
+};
+
+// Update the expense
+export const update = async (id, updatedExpense) => {
+  const expense = await Expense.findByIdAndUpdate({ _id: id }, updatedExpense, {
+    new: true,
+  }).exec();
+  return expense;
+};

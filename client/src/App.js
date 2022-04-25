@@ -7,6 +7,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import AddExpense from "./pages/User/AddExpense";
 import ListExpense from "./pages/User/ListExpense";
+import UpdateExpense from "./pages/User/UpdateExpense";
 
 function App() {
   return (
@@ -22,6 +23,11 @@ function App() {
           path="/list-expense"
           exact
           component={ListExpense}
+        ></ProtectedRoute>
+        <ProtectedRoute
+          path="/update-expense/:expenseid"
+          exact
+          component={UpdateExpense}
         ></ProtectedRoute>
         <Route path="/login" exact component={Login}></Route>
         <Route path="/register" exact component={Register}></Route>
