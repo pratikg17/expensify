@@ -41,10 +41,6 @@ export const update = async (id, updatedExpense) => {
   return expense;
 };
 
-export const getExpenseById = async (id) => {
-  const expense = await Expense.findById(id).exec();
-  return expense;
-};
 
 export const getCurrentMontlyPreview = async (data) => {
   let currentPreview = await Expense.aggregate([
