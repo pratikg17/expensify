@@ -61,7 +61,7 @@ const Drawer = styled(MuiDrawer, {
   },
 }));
 
-const mdTheme = createTheme();
+const invertTheme = createTheme();
 
 function DashboardContent(props) {
   console.log("props", props);
@@ -71,7 +71,7 @@ function DashboardContent(props) {
   };
 
   return (
-    <ThemeProvider theme={mdTheme}>
+    <ThemeProvider theme={invertTheme}>
       <Box sx={{ display: "flex" }}>
         <CssBaseline />
         <AppBar position="absolute" open={open}>
@@ -99,7 +99,7 @@ function DashboardContent(props) {
               noWrap
               sx={{ flexGrow: 1 }}
             >
-              Expense Dashboard
+              Expensify Dashboard
             </Typography>
           </Toolbar>
         </AppBar>

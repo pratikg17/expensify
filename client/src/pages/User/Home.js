@@ -71,6 +71,18 @@ export default function Home() {
       name: "A Minimalist Approach to Personal Finance",
       link: "https://www.youtube.com/watch?v=zVcwvCL2C2c",
     },
+    {
+      name: "How to Properly Manage Your Money Like the Rich | Tom Ferry",
+      link: "https://www.youtube.com/watch?v=wJB90G-tsgo",
+    },
+    {
+      name: "You Will Never Be Poor Again | START DOING THIS TODAY!!!",
+      link: "https://www.youtube.com/watch?v=j1p2PbfNk0c",
+    },
+    {
+      name: "How the Rich Use Debt and Taxes to Get Richer - Robert Kiyosaki",
+      link: "https://www.youtube.com/watch?v=aDheNy_Swbk",
+    },
   ];
 
   return (

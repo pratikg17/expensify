@@ -53,5 +53,25 @@ router.delete("/expense/:expenseId", auth, async (req, res) => {
   return expenseController.deleteExpenseById(req, res);
 });
 
+// @route    GET api/expense-report/category/pie
+// @desc     Plot pie chart
+// @access   Private
+router.get("/expense-report/category/pie", auth, async (req, res) => {
+  return expenseController.getUserCategoryPie(req, res);
+});
+
+// @route    GET api/expense-report/yearly-bar-report
+// @desc     Plot yearly bar chart
+// @access   Private
+router.get("/expense-report/yearly-bar-report", auth, async (req, res) => {
+  return expenseController.getUserExpenseBarChart(req, res);
+});
+
+// @route    GET api/expense/scatter-plot-report
+// @desc     Plot scatter plot
+// @access   Private
+router.get("/expense-report/scatter-plot-report", auth, async (req, res) => {
+  return expenseController.getUserExpenseScatterPlot(req, res);
+});
 
 export default router;
