@@ -1,7 +1,7 @@
 name: React job project
 
 env:
-  HEROKU_TOKEN: fba8b763-b23a-44a8-a3ba-065414f3719e
+  HEROKU_TOKEN: "fba8b763-b23a-44a8-a3ba-065414f3719e"
 
 on:
   push:
