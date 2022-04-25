@@ -186,3 +186,26 @@ export const getUserExpenseScatterPlot = async (req, res) => {
     });
   }
 };
+
+// @route    GET /expense/category/pie
+// @access   Private
+export const getUserCategoryPie = async (req, res) => {
+  let userId = req.user._id;
+  console.log(req.query);
+  const firstDay = new Date(req.query.firstDay);
+  const lastDay = new Date(req.query.lastDay);
+  let data = {
+    firstDay,
+    userId,
+    lastDay,
+  };
+  try {
+    let categoryMonthlyAvg = await expenseService.getUserPieChart(data);
+    res.json({ monthAVG: categoryMonthlyAvg });
+  } catch (err) {
+    console.log(err);
+    return res.status(400).json({
+      error: errorHandler.getErrorMessage(err),
+    });
+  }
+}; 
