@@ -8,6 +8,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import AddExpense from "./pages/User/AddExpense";
 import ListExpense from "./pages/User/ListExpense";
+import Help from "./pages/Help";
 import UpdateExpense from "./pages/User/UpdateExpense";
 import MonthlyReport from "./pages/User/Reports/MonthlyReport";
 import CategoryWiseReport from "./pages/User/Reports/CategoryWiseReport";
@@ -31,6 +32,11 @@ function App() {
           path="/list-expense"
           exact
           component={ListExpense}
+        ></ProtectedRoute>
+        <ProtectedRoute
+          path="/help"
+          exact 
+          component={Help}
         ></ProtectedRoute>
         <ProtectedRoute
           path="/monthly"
