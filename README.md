@@ -35,3 +35,17 @@
 - AntD Component
 - Redux
 - SCSS / SASS
+
+## Run Project
+
+## React App
+
+- To run React project `cd/client`
+- Run `npm install`
+- Type `npm run start`
+
+## Node server
+
+- To run React project `cd/server`
+- Run `npm install`
+- Type `npm run start` or `nodemon server.js`
