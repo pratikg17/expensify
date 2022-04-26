@@ -129,11 +129,7 @@ export default function Home() {
             </Stack>
           </Container>
         </Box>
-        <Carousel indicators={true}  navButtonsAlwaysVisible>
-          {items.map((item, i) => (
-            <Item key={i} item={item} />
-          ))}
-        </Carousel>
+        
       </main>
     </DefaultLayout>
   );
