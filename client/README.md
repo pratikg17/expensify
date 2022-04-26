@@ -80,3 +80,5 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
 
 `npm install --legacy-peer-deps`
+
+Database Connection: [mongodb+srv://testdb:test123@cluster0.uhuzf.mongodb.net/myFirstDatabase?retryWrites=true&w=majority]
