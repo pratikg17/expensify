@@ -12,6 +12,16 @@ import DefaultLayout from "../components/DefaultLayout";
 import { Link } from "react-router-dom";
 import Carousel from "react-material-ui-carousel";
 
+import CameraIcon from '@mui/icons-material/PhotoCamera';
+import Card from '@mui/material/Card';
+import CardActions from '@mui/material/CardActions';
+import CardContent from '@mui/material/CardContent';
+import CardMedia from '@mui/material/CardMedia';
+import CssBaseline from '@mui/material/CssBaseline';
+import Grid from '@mui/material/Grid';
+import Toolbar from '@mui/material/Toolbar';
+
+
 function Item(props) {
   return (
     <Box
@@ -49,6 +59,48 @@ function Item(props) {
   );
 }
 
+function ItemCard(props) {
+  return (
+    <Box
+      sx={{
+        display: "flex",
+        bgcolor: "background.paper",
+        m: 10,
+        p: 5,
+        justifyContent: "center",
+      }}
+    >
+                 <Card
+                >
+                  <CardMedia
+                    component="img"
+                    sx={{
+                      // 16:9
+                      // pt: '56.25%',
+                    }}
+                    image="https://source.unsplash.com/random"
+                    alt="random"
+                  />
+                  <CardContent sx={{ flexGrow: 1 }}>
+                    <Typography gutterBottom variant="h5" component="h2">
+                      Heading
+                    </Typography>
+                    <Typography>
+                      This is a media card. You can use this section to describe the
+                      content.
+                    </Typography>
+                  </CardContent>
+                  <CardActions>
+                    <Button size="small">View</Button>
+                    <Button size="small">Edit</Button>
+                  </CardActions>
+                </Card>
+            
+        {/* <p>{props.item.name}</p> */}
+    
+    </Box>
+  );
+}
 
 
 function Help() {
@@ -99,6 +151,10 @@ function Help() {
               <Item key={i} item={item} />
             ))}
           </Carousel>
+
+          <ItemCard />
+          <ItemCard />
+          <ItemCard />
 
       </main>
            

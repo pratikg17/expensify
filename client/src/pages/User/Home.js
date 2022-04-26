@@ -80,7 +80,7 @@ export default function Home() {
       link: "https://www.youtube.com/watch?v=j1p2PbfNk0c",
     },
     {
-      name: "How the Rich Use Debt and Taxes to Get Richer - Robert Kiyosaki      ",
+      name: "How the Rich Use Debt and Taxes to Get Richer - Robert Kiyosaki",
       link: "https://www.youtube.com/watch?v=aDheNy_Swbk",
     },
   ];
