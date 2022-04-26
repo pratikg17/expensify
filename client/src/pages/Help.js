@@ -74,6 +74,8 @@ function ItemCard(props) {
                 >
                   <CardMedia
                     component="img"
+                    height={"1000px"}
+                    width={"1000px"}
                     sx={{
                       // 16:9
                       // pt: '56.25%',
