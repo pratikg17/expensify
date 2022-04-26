@@ -70,17 +70,17 @@ function ItemCard(props) {
         justifyContent: "center",
       }}
     >
-                 <Card
-                >
+                 <Card>
                   <CardMedia
                     component="img"
-                    height={"1000px"}
+                    height={"400px"}
                     width={"1000px"}
                     sx={{
                       // 16:9
                       // pt: '56.25%',
                     }}
                     image="https://source.unsplash.com/random"
+                    // https://money.usnews.com/money/personal-finance/articles/steps-to-manage-your-money
                     alt="random"
                   />
                   <CardContent sx={{ flexGrow: 1 }}>
