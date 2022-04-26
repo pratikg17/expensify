@@ -79,17 +79,19 @@ function ItemCard(props) {
                       // 16:9
                       // pt: '56.25%',
                     }}
-                    image="https://source.unsplash.com/random"
-                    // https://money.usnews.com/money/personal-finance/articles/steps-to-manage-your-money
+                    image="https://www.usnews.com/dims4/USNEWS/8e51506/2147483647/crop/2116x1411%2B0%2B0/resize/970x647/quality/85/?url=http%3A%2F%2Fmedia.beam.usnews.com%2Fce%2F2c%2F89d823224868bab85870983a570d%2Fgettyimages-1367126307.jpg"
                     alt="random"
                   />
                   <CardContent sx={{ flexGrow: 1 }}>
                     <Typography gutterBottom variant="h5" component="h2">
                       Begin your saving journey today
                     </Typography>
+
                     <Typography>
-                    7 Steps to Manage Your Money.
-                    </Typography>
+                    7 Steps to Manage Your Money. 
+                    </Typography> 
+
+
                   </CardContent>
                   <CardActions>
                     <Button size="small">View</Button>
@@ -135,18 +137,16 @@ function Help() {
       link: "https://www.youtube.com/watch?v=j1p2PbfNk0c",
     },
     {
-      name: "How the Rich Use Debt and Taxes to Get Richer - Robert Kiyosaki      ",
+      name: "How the Rich Use Debt and Taxes to Get Richer - Robert Kiyosaki",
       link: "https://www.youtube.com/watch?v=aDheNy_Swbk",
     },
   ];
   
-  return (
-    
+  return (  
 
     <DefaultLayout>
       
-      <main>
-        
+      <main>        
           <Carousel indicators={true}  navButtonsAlwaysVisible>
             {items.map((item, i) => (
               <Item key={i} item={item} />
