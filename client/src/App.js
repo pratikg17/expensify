@@ -62,6 +62,8 @@ function App() {
   );
 }
 
+
+
 export function ProtectedRoute({ component: Component, ...restOfProps }) {
   const isAuthenticated = localStorage.getItem("user");
   console.log("this", isAuthenticated);
