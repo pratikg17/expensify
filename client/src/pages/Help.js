@@ -168,25 +168,28 @@ function Help() {
     {
       name: "8 Financial Tips for Young Adults",
       link: "https://www.investopedia.com/articles/younginvestors/08/eight-tips.asp",
-      image:"https://tpc.googlesyndication.com/simgad/8555323546526820719?"
+      image:"https://tpc.googlesyndication.com/simgad/8555323546526820719?",
     },
     {
-      name: "A Minimalist Approach to Personal Finance",
-      link: "https://www.youtube.com/watch?v=zVcwvCL2C2c",
-      image:""
+      name: "Top 10 Financial Tips",
+      link: "https://www.thebalance.com/top-ten-financial-tips-1289309",
+      image:"https://www.nerdwallet.com/assets/blog/wp-content/uploads/2018/08/free-financial-advice-1920x1152.jpeg",
     },
-    // {
-    //   name: "How to Properly Manage Your Money Like the Rich | Tom Ferry",
-    //   link: "https://www.youtube.com/watch?v=wJB90G-tsgo",
-    // },
-    // {
-    //   name: "You Will Never Be Poor Again | START DOING THIS TODAY!!!",
-    //   link: "https://www.youtube.com/watch?v=j1p2PbfNk0c",
-    // },
-    // {
-    //   name: "How the Rich Use Debt and Taxes to Get Richer - Robert Kiyosaki",
-    //   link: "https://www.youtube.com/watch?v=aDheNy_Swbk",
-    // },
+    {
+      name: "Financial Future Planning - Budgeting for Retirement",
+      link: "https://capformgroup.com/contact/",
+      image:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRxJMp2pJDIXNPyjG6iGgdS6159FPxaXNiWrw&usqp=CAU",
+    },
+    {
+      name: "Ultimate Guide to Creating a Budget",
+      link: "https://www.moneymanagement.org/budget-guides/create-a-budget?sc_camp=C1AA724A1A6F42DB8B97EB72E4F8CF53&gclid=CjwKCAjwsJ6TBhAIEiwAfl4TWA73Fa6dAxkXn8LfEIDObbaGzmKG93gZYsFQscExa45h8YT83n7SHhoCT7gQAvD_BwE",
+      image:"https://www.moneymanagement.org/budget-guides/create-a-budget?sc_camp=C1AA724A1A6F42DB8B97EB72E4F8CF53&gclid=CjwKCAjwsJ6TBhAIEiwAfl4TWA73Fa6dAxkXn8LfEIDObbaGzmKG93gZYsFQscExa45h8YT83n7SHhoCT7gQAvD_BwE",
+  },
+    {
+      name: "How to plan a household budget",
+      link: "https://experience.dropbox.com/get-organized/household-budget?_tk=paid_sem_goog_biz_nb_int20&_camp=14262642399&_kw=managing%20personal%20finance|e&_ad=538977118048||c&gclid=CjwKCAjwsJ6TBhAIEiwAfl4TWBu9bCR0vhS4RQ-CyJRr9D69CXUCk7toRaP803x6VpgHTzc9AjmhvhoC3EAQAvD_BwE",
+      image:"https://aem.dropbox.com/cms/content/dam/dropbox/dmep/assets/articles/householdbudget@2x.png/_jcr_content/renditions/householdbudget@2x.article-hero.1920.1280.webp",
+    },
     
   ];
   
