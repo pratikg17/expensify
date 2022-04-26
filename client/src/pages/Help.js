@@ -79,27 +79,33 @@ function ItemCard(props) {
                       // 16:9
                       // pt: '56.25%',
                     }}
-                    image="https://www.usnews.com/dims4/USNEWS/8e51506/2147483647/crop/2116x1411%2B0%2B0/resize/970x647/quality/85/?url=http%3A%2F%2Fmedia.beam.usnews.com%2Fce%2F2c%2F89d823224868bab85870983a570d%2Fgettyimages-1367126307.jpg"
+                    image= {props.item.image}
                     alt="random"
                   />
                   <CardContent sx={{ flexGrow: 1 }}>
+
                     <Typography gutterBottom variant="h5" component="h2">
-                      Begin your saving journey today
+                     <p>{props.item.name}</p>
                     </Typography>
 
                     <Typography>
-                    7 Steps to Manage Your Money. 
+                    {/* 7 Steps to Manage Your Money.  */}
                     </Typography> 
 
 
                   </CardContent>
                   <CardActions>
-                    <Button size="small">View</Button>
-                    <Button size="small">Edit</Button>
+                    <Button size="small" component={Link}
+          to={{ pathname: props.item.link }}
+          target="_blank"
+          rel="noopener noreferrer">View</Button>
+                    {/* <Button size="small">Edit</Button> */}
                   </CardActions>
                 </Card>
             
-        {/* <p>{props.item.name}</p> */}
+        
+        {/* <image>{props.item.image}</image> */}
+
     
     </Box>
   );
@@ -140,26 +146,75 @@ function Help() {
       name: "How the Rich Use Debt and Taxes to Get Richer - Robert Kiyosaki",
       link: "https://www.youtube.com/watch?v=aDheNy_Swbk",
     },
+    
+  ];
+
+  var itemCard = [
+    {
+      name: "Steps to Manage Your Money",
+      link: "https://money.usnews.com/money/personal-finance/articles/steps-to-manage-your-money",
+      image:"https://www.usnews.com/dims4/USNEWS/8e51506/2147483647/crop/2116x1411%2B0%2B0/resize/970x647/quality/85/?url=http%3A%2F%2Fmedia.beam.usnews.com%2Fce%2F2c%2F89d823224868bab85870983a570d%2Fgettyimages-1367126307.jpg"
+    },
+    {
+      name: "23 Legit Ways to Make Extra Cash",
+      link: "https://financebuzz.com/ways-to-save-money-g?utm_source=GoogleAdWords&utm_medium=paid-search-g&utm_campaign=US_SideHustle_ROAS_6523447166_127728955648&utm_content=548714535996&utm_term=how%20to%20save%20money&mt=e&device=c&devicemodel=&targetid=kwd-92619869&target=&keyword=how%20to%20save%20money&campaignid=6523447166&adgroupid=127728955648&gclid=CjwKCAjwsJ6TBhAIEiwAfl4TWEklJdjJ6An9UCSO6mCozNrsDlwS1jxke14HDETpY9gDcS-E0N0UnxoCZJsQAvD_BwE",
+      image:"https://images.financebuzz.com/1018x537/filters:quality(75)/images/2018/01/23/navina-side-hustle-mid_MPfEDfV.jpg"
+    },
+    {
+      name: "Top 10 Money Management Tips",
+      link: "https://smartasset.com/checking-account/top-10-money-management-tips",
+      image:"https://dr5dymrsxhdzh.cloudfront.net/blog/images/ac0d827e4/2017/08/rsz_istock-517970686.jpg",
+    },
+    {
+      name: "8 Financial Tips for Young Adults",
+      link: "https://www.investopedia.com/articles/younginvestors/08/eight-tips.asp",
+      image:"https://tpc.googlesyndication.com/simgad/8555323546526820719?"
+    },
+    {
+      name: "A Minimalist Approach to Personal Finance",
+      link: "https://www.youtube.com/watch?v=zVcwvCL2C2c",
+      image:""
+    },
+    // {
+    //   name: "How to Properly Manage Your Money Like the Rich | Tom Ferry",
+    //   link: "https://www.youtube.com/watch?v=wJB90G-tsgo",
+    // },
+    // {
+    //   name: "You Will Never Be Poor Again | START DOING THIS TODAY!!!",
+    //   link: "https://www.youtube.com/watch?v=j1p2PbfNk0c",
+    // },
+    // {
+    //   name: "How the Rich Use Debt and Taxes to Get Richer - Robert Kiyosaki",
+    //   link: "https://www.youtube.com/watch?v=aDheNy_Swbk",
+    // },
+    
   ];
   
   return (  
 
     <DefaultLayout>
       
-      <main>        
+      <main>
+        
           <Carousel indicators={true}  navButtonsAlwaysVisible>
             {items.map((item, i) => (
               <Item key={i} item={item} />
             ))}
+
+            
           </Carousel>
 
-          <ItemCard />
-          <ItemCard />
-          <ItemCard />
+          {itemCard.map((item, i) => (
+              <ItemCard key={i} item={item} />
+            ))}
+
+          {/* <ItemCard /> */}
+          {/* <ItemCard />
+          <ItemCard /> */}
 
       </main>
            
-      Help</DefaultLayout>
+      “You have to know where your money is going.”  </DefaultLayout>
   )
 }
 
