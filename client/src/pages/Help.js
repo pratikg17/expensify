@@ -183,7 +183,7 @@ function Help() {
     {
       name: "Ultimate Guide to Creating a Budget",
       link: "https://www.moneymanagement.org/budget-guides/create-a-budget?sc_camp=C1AA724A1A6F42DB8B97EB72E4F8CF53&gclid=CjwKCAjwsJ6TBhAIEiwAfl4TWA73Fa6dAxkXn8LfEIDObbaGzmKG93gZYsFQscExa45h8YT83n7SHhoCT7gQAvD_BwE",
-      image:"https://www.moneymanagement.org/budget-guides/create-a-budget?sc_camp=C1AA724A1A6F42DB8B97EB72E4F8CF53&gclid=CjwKCAjwsJ6TBhAIEiwAfl4TWA73Fa6dAxkXn8LfEIDObbaGzmKG93gZYsFQscExa45h8YT83n7SHhoCT7gQAvD_BwE",
+      image:"https://www.echowealthmanagement.com/images/yootheme/zoo/blog/10-money-management-tips-for-teens.jpg",
   },
     {
       name: "How to plan a household budget",
