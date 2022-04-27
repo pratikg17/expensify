@@ -9,6 +9,10 @@
 - Ganesh Kumar Dharani
 - Shenckerr Gollapudi
 
+# App URL
+
+<https://expensify-react-client.herokuapp.com/login>
+
 # Domain Model
 
 ![Screenshot](screenshot.png)
