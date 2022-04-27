@@ -17,6 +17,10 @@
 
 ![Screenshot](screenshot.png)
 
+# Application Summary
+
+![Screenshot](Project SPSSN.PNG)
+
 ## User Stories
 
 - User should be able to create an account
