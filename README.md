@@ -68,21 +68,17 @@
 
 ## Libraries used in this application
 
-    "Emotion":  https://www.npmjs.com/package/@emotion/react
+    "Emotion":  <https://www.npmjs.com/package/@emotion/react>
     
-    "Material UI": "https://mui.com/"    
+    "Material UI": <https://mui.com/>
     
-    "Axios": "https://axios-http.com/docs/intro"
+    "Axios": <https://axios-http.com/docs/intro>
 
-    "Javascript-time-ago": "https://timeago.org/",
+    "Javascript-time-ago": <https://timeago.org/>
     
-    "Notistack": "https://github.com/iamhosseindhv/notistack",
+    "Notistack": <https://github.com/iamhosseindhv/notistack>
           
-    "react-toastify": "^8.2.0",
-
-Realm java - <https://realm.io/>
-MpAndroidChart - <https://github.com/PhilJay/MPAndroidChart>
-Android support libraries - <http://developer.android.com/intl/es/tools/support-library/features.html>
+    "React-toastify": <https://aleab.github.io/toastify/>
 
 ## Reference
 
