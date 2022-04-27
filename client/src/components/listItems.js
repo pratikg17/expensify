@@ -7,6 +7,7 @@ import BarChartIcon from "@mui/icons-material/BarChart";
 import LogoutIcon from "@mui/icons-material/Logout";
 import MoneyOffIcon from "@mui/icons-material/MoneyOff";
 import ListIcon from "@mui/icons-material/List";
+import HelpCenterIcon from '@mui/icons-material/HelpCenter';
 import { Link } from "react-router-dom";
 import PieChartIcon from "@mui/icons-material/PieChart";
 import StackedBarChartIcon from "@mui/icons-material/StackedBarChart";
@@ -56,6 +57,12 @@ export const mainListItems = (
         <PieChartIcon />
       </ListItemIcon>
       <ListItemText primary="Category Report" />
+    </ListItemButton>
+    <ListItemButton button component={Link} to="/help">
+      <ListItemIcon>
+        <HelpCenterIcon/>
+      </ListItemIcon>
+      <ListItemText primary="Help Section" />
     </ListItemButton>
   </React.Fragment>
 );
