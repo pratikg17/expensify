@@ -19,7 +19,7 @@
 
 # Application Summary
 
-![Screenshot](Project SPSSN.PNG)
+![Screenshot](Project_SPSSN.png)
 
 ## User Stories
 
